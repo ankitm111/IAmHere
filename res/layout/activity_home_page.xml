@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.iamhere.HomePageActivity"
+    tools:ignore="HardcodedText" >
+
+    <LinearLayout
+        android:id="@+id/linearLayOutCreateJourney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/createJourneyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Journey"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Button
+            android:id="@+id/createJourneyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Journey" 
+            android:onClick="createJourney"/>
+    </LinearLayout>
+    
+   <LinearLayout
+       android:id="@+id/linearLayoutSearchJourney"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/linearLayOutCreateJourney"
+       android:layout_centerHorizontal="true"
+       android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/searchJourneyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Journey" />
+
+        <Button
+            android:id="@+id/searchJourneyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Journey"
+            android:onClick="searchJourney" />
+
+    </LinearLayout>
+ 
+    <LinearLayout
+        android:id="@+id/linearLayOutList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutSearchJourney"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/listJourneys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+    </LinearLayout>
+
+</RelativeLayout>

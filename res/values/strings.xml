@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IAmHere</string>
+ <!--     <string name="action_settings">Settings</string>  -->
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="title_activity_create_journey">CreateJourneyActivity</string>
+    <string name="title_activity_add_checkin">AddCheckinActivity</string>
+    <string name="title_activity_search_journey">SearchJourneyActivity</string>
+    <string name="title_activity_show_journey">ShowJourney</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="add_checkin">Add Checkin</string>
+    <string name="editTextPassword">editTextPassword</string>
+    <string name="editTextUsername">editTextUsername</string>
+    <string name="checkinTableLayout">checkinTableLayout</string>
+
+</resources>

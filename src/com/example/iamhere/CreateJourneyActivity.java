@@ -1,5 +1,6 @@
 package com.example.iamhere;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -43,6 +44,7 @@ public class CreateJourneyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_journey);
 		
+		checkinList = new ArrayList<Checkin>();
 		AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle("Alert Dialog With EditText"); //Set Alert dialog title here
         alert.setMessage("Enter Your Name Here"); //Message here
@@ -96,7 +98,7 @@ public class CreateJourneyActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 	    if (requestCode == 1) {
-	        if(resultCode == RESULT_OK){
+	        if(resultCode == RESULT_OK) {
 	        	
 	    	    String checkinName = data.getStringExtra("checkin_name");
 	    	    String comment = data.getStringExtra("comment");
@@ -122,7 +124,7 @@ public class CreateJourneyActivity extends Activity {
 	            
 	            tl.addView(tr);
 
-	            
+	            	
 	    	    
 	        }
 	        else if (resultCode == RESULT_CANCELED) {

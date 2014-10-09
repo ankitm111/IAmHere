@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,20 +19,24 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.location.LocationClient;
+
 public class AddCheckinActivity extends Activity implements
 GooglePlayServicesClient.ConnectionCallbacks,
 GooglePlayServicesClient.OnConnectionFailedListener{
 
 	static final int REQUEST_IMAGE_CAPTURE = 1;
 	String mCurrentPhotoPath;
-	private LocationManager locationManager;
 	private String provider;
     private Double latitude, longitude;
-
+    private LocationClient mLocationClient;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mLocationClient = new LocationClient(this, this, this);
 		setContentView(R.layout.activity_add_checkin);
 	}
 
@@ -110,46 +113,11 @@ GooglePlayServicesClient.OnConnectionFailedListener{
 		
 		TextView comment = (TextView)findViewById(R.id.commentsTextView);
 		String commentString = comment.getText().toString();
-		
-		
-		//LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
-	//	boolean enabled = service.isProviderEnabled(c);
-
-		// check if enabled and if not send user to the GSP settings
-		// Better solution would be to display a dialog and suggesting to 
-		// go to the settings
-	/*	if (!enabled) {
-		  Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-		  startActivity(intent);
-		} 
-		
-		// Define the criteria how to select the location provider -> use
-	    // default
-		try{
-	       Criteria criteria = new Criteria();
-	       provider = locationManager.getBestProvider(criteria, false);
-	       Location location = locationManager.getLastKnownLocation(provider);
-	       System.out.println(location.toString());
 	    
-	       if (location != null) {
-	    	   System.out.println("Provider " + provider + " has been selected.");
-	    	   onLocationChanged(location);
-	       }
-	       else {
-	    	   System.out.println("Location not available");
-	       }
-		}
-		catch(SecurityException e){
-			System.out.println("Exception " + e.toString());
-		}
-		catch(IllegalArgumentException i){
-			System.out.println("Exception " + i.toString());
-
-		}
-	    */
-	    // Initialize the location fields
-	    
-	    
+		Location currentLocation = mLocationClient.getLastLocation();
+		
+		latitude = currentLocation.getLatitude();
+		longitude = currentLocation.getLongitude();
 
 	    Intent returnIntent = new Intent();
 	    returnIntent.putExtra("checkin_name", checkin_name);
@@ -157,33 +125,39 @@ GooglePlayServicesClient.OnConnectionFailedListener{
 	    returnIntent.putExtra("latitude", latitude);
 	    returnIntent.putExtra("latitude", longitude);
 	    
-	    setResult(RESULT_OK,returnIntent);
+	    setResult(RESULT_OK, returnIntent);
 	    finish();
 	}
 
-	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-        latitude = location.getLatitude();
-	   	longitude = location.getLongitude();
+	@Override
+	protected void onStart() {
+	   super.onStart();
+	   // Connect the client.
+	   mLocationClient.connect();   
 	}
-
-	public void onStatusChanged(String provider, int status, Bundle extras) {
+	
+	@Override
+	protected void onStop() {
+      // Disconnect the client.
+		mLocationClient.disconnect();
+	    super.onStop();
+	}
+	
+	public void onConnectionFailed(ConnectionResult arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void onProviderEnabled(String provider) {
+	public void onConnected(Bundle arg0) {
 		// TODO Auto-generated method stub
-	    Toast.makeText(this, "Enabled new provider " + provider,
-	            Toast.LENGTH_SHORT).show();
-		
+	      Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 	}
 
-	public void onProviderDisabled(String provider) {
+	public void onDisconnected() {
 		// TODO Auto-generated method stub
-	    Toast.makeText(this, "Disabled provider " + provider,
-	            Toast.LENGTH_SHORT).show();
-		
+	      // Display the connection status
+	      Toast.makeText(this, "Disconnected. Please re-connect.",
+	      Toast.LENGTH_SHORT).show();
 	}
 	
 }

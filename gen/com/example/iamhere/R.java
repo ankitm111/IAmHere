@@ -408,7 +408,8 @@ containing a value of this type.
     }
     public static final class id {
         public static final int JourneyName=0x7f070020;
-        public static final int SignupButton=0x7f070035;
+        public static final int SignupButton=0x7f070036;
+        public static final int action_settings=0x7f070042;
         public static final int book_now=0x7f070010;
         public static final int buttonAddCheckin=0x7f07001e;
         public static final int buyButton=0x7f07000a;
@@ -418,39 +419,46 @@ containing a value of this type.
         public static final int checkinNameTextView=0x7f070016;
         public static final int classic=0x7f070011;
         public static final int commentsTextView=0x7f070019;
-        public static final int createJourneyBtn=0x7f070029;
-        public static final int createJourneyText=0x7f070028;
-        public static final int editTextEmail=0x7f070034;
-        public static final int editTextPassword=0x7f070039;
-        public static final int editTextUsername=0x7f070031;
+        public static final int createJourneyBtn=0x7f07002a;
+        public static final int createJourneyText=0x7f070029;
+        public static final int editTextEmail=0x7f070035;
+        public static final int editTextPassword=0x7f070041;
+        public static final int editTextUsername=0x7f070032;
         public static final int grayscale=0x7f070012;
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
-        public static final int linearLayOutCreateJourney=0x7f070027;
-        public static final int linearLayOutList=0x7f07002d;
+        public static final int linearLayOutCreateJourney=0x7f070028;
+        public static final int linearLayOutList=0x7f07002e;
         public static final int linearLayout1=0x7f070014;
         public static final int linearLayout2=0x7f070017;
-        public static final int linearLayoutEmail=0x7f070032;
+        public static final int linearLayoutEmail=0x7f070033;
         public static final int linearLayoutJourneyName=0x7f07001c;
-        public static final int linearLayoutPassword=0x7f070037;
-        public static final int linearLayoutSearchJourney=0x7f07002a;
-        public static final int linearLayoutUsername=0x7f07002f;
-        public static final int listJourneys=0x7f07002e;
+        public static final int linearLayoutPassword=0x7f07003f;
+        public static final int linearLayoutSearchJourney=0x7f07002b;
+        public static final int linearLayoutUsername=0x7f070030;
+        public static final int listJourneys=0x7f07002f;
+        public static final int mapView=0x7f070038;
         public static final int match_parent=0x7f07000c;
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
         public static final int production=0x7f070007;
+        public static final int radio0=0x7f07003d;
+        public static final int radio1=0x7f07003e;
+        public static final int radioGroup=0x7f07003c;
         public static final int sandbox=0x7f070008;
         public static final int satellite=0x7f070002;
         public static final int saveCheckinBtn=0x7f07001b;
+        public static final int saveJourneyButton=0x7f070027;
         public static final int scrollView1=0x7f070021;
-        public static final int searchJourneyBtn=0x7f07002c;
-        public static final int searchJourneyText=0x7f07002b;
+        public static final int searchButton=0x7f07003b;
+        public static final int searchJourneyBtn=0x7f07002d;
+        public static final int searchJourneyText=0x7f07002c;
+        public static final int searchString=0x7f070039;
         public static final int seeMapButton=0x7f07001f;
         public static final int selectionDetails=0x7f07000b;
-        public static final int signupButton=0x7f070036;
+        public static final int signupButton=0x7f070037;
         public static final int strict_sandbox=0x7f070009;
         public static final int tableRow1=0x7f070023;
         public static final int tableRow2=0x7f070024;
@@ -458,12 +466,13 @@ containing a value of this type.
         public static final int tableRow4=0x7f070026;
         public static final int takePictureBtn=0x7f07001a;
         public static final int terrain=0x7f070003;
+        public static final int textView1=0x7f07003a;
         public static final int textViewCheckinName=0x7f070015;
         public static final int textViewDescription=0x7f070018;
-        public static final int textViewEmail=0x7f070033;
+        public static final int textViewEmail=0x7f070034;
         public static final int textViewJourneyName=0x7f07001d;
-        public static final int textViewPassword=0x7f070038;
-        public static final int textViewUsername=0x7f070030;
+        public static final int textViewPassword=0x7f070040;
+        public static final int textViewUsername=0x7f070031;
         public static final int wrap_content=0x7f07000d;
     }
     public static final class integer {
@@ -474,20 +483,23 @@ containing a value of this type.
         public static final int activity_create_journey=0x7f030001;
         public static final int activity_home_page=0x7f030002;
         public static final int activity_login=0x7f030003;
-        public static final int activity_search_journey=0x7f030004;
-        public static final int activity_show_journey=0x7f030005;
-        public static final int activity_sign_up=0x7f030006;
+        public static final int activity_map_journey=0x7f030004;
+        public static final int activity_search_journey=0x7f030005;
+        public static final int activity_show_journey=0x7f030006;
+        public static final int activity_sign_up=0x7f030007;
     }
     public static final class menu {
         public static final int add_checkin=0x7f0a0000;
         public static final int create_journey=0x7f0a0001;
         public static final int home_page=0x7f0a0002;
         public static final int login=0x7f0a0003;
-        public static final int search_journey=0x7f0a0004;
-        public static final int show_journey=0x7f0a0005;
-        public static final int sign_up=0x7f0a0006;
+        public static final int map_journey=0x7f0a0004;
+        public static final int search_journey=0x7f0a0005;
+        public static final int show_journey=0x7f0a0006;
+        public static final int sign_up=0x7f0a0007;
     }
     public static final class string {
+        public static final int action_settings=0x7f060027;
         public static final int add_checkin=0x7f060021;
         public static final int app_name=0x7f06001a;
         public static final int checkinTableLayout=0x7f060024;
@@ -582,11 +594,13 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f060018;
         public static final int editTextPassword=0x7f060022;
         public static final int editTextUsername=0x7f060023;
+        public static final int hello_world=0x7f060026;
         public static final int title_activity_add_checkin=0x7f06001d;
         public static final int title_activity_create_journey=0x7f06001c;
-        /**      <string name="action_settings">Settings</string>  
+        /**  <string name="action_settings">Settings</string> 
          */
         public static final int title_activity_home_page=0x7f06001b;
+        public static final int title_activity_map_journey=0x7f060025;
         public static final int title_activity_search_journey=0x7f06001e;
         public static final int title_activity_show_journey=0x7f06001f;
         public static final int title_activity_sign_up=0x7f060020;

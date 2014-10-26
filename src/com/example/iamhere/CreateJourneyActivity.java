@@ -18,6 +18,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
+
 class Checkin
 {
     public String checkinName, comment;
@@ -43,6 +47,8 @@ public class CreateJourneyActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_journey);
+		
+		Parse.initialize(this, "euDIlnZNac4M0Jl6wgds8qHOERXaJsHTKiAgmesT", "yD5SB9avxORf8KIp9XQhTy2Zmn1gTuLHzt0RSbyT");
 		
 		checkinList = new ArrayList<Checkin>();
 		AlertDialog.Builder alert = new AlertDialog.Builder(context);
@@ -142,8 +148,43 @@ public class CreateJourneyActivity extends Activity {
 	
 	public void mapJourney(View v)
 	{
-		//Intent intent = new Intent(this, MapJourney.class);
+		Intent intent = new Intent(this, MapJourney.class);
+		String data = new String();
+		for(Checkin c : checkinList)
+		{
+		//	LatLng l = new LatLng(c.latitude, c.longitude);
+			data = c.checkinName;
+			data += ' ';
+			data += c.latitude.toString();
+			data += ' ';
+			data += c.longitude.toString();
+			data += '\n'; // end of 1 checkin info
+		}
+		intent.putExtra("latlon", data);
 		//intent.putExtra(name, value);
+		startActivity(intent);
 		
+	}
+	
+	public void saveJourney(View v)
+	{
+		// Make parse request
+		ParseObject journey = new ParseObject("JourneyDetails");
+		journey.put("user", LoginActivity.loginName);
+		journey.put("journeyName", journeyName);
+		for (Checkin c: checkinList)
+		{
+			ParseObject checkin = new ParseObject("CheckinDetails");
+			checkin.put("checkinName", c.checkinName);
+			checkin.put("checkinComment", c.comment);
+			ParseGeoPoint gPoint = new ParseGeoPoint(c.latitude, c.longitude);
+			checkin.put("checkin", gPoint);
+			
+			journey.add("checkin", checkin);
+		}
+		
+		journey.saveInBackground();
+		
+		finish();
 	}
 }

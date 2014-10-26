@@ -123,7 +123,7 @@ GooglePlayServicesClient.OnConnectionFailedListener{
 	    returnIntent.putExtra("checkin_name", checkin_name);
 	    returnIntent.putExtra("comment", commentString);
 	    returnIntent.putExtra("latitude", latitude);
-	    returnIntent.putExtra("latitude", longitude);
+	    returnIntent.putExtra("longitude", longitude);
 	    
 	    setResult(RESULT_OK, returnIntent);
 	    finish();

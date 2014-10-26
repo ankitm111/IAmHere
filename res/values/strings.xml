@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">IAmHere</string>
- <!--     <string name="action_settings">Settings</string>  -->
+    <!-- <string name="action_settings">Settings</string> -->
     <string name="title_activity_home_page">HomePageActivity</string>
     <string name="title_activity_create_journey">CreateJourneyActivity</string>
     <string name="title_activity_add_checkin">AddCheckinActivity</string>
@@ -13,5 +13,8 @@
     <string name="editTextPassword">editTextPassword</string>
     <string name="editTextUsername">editTextUsername</string>
     <string name="checkinTableLayout">checkinTableLayout</string>
+    <string name="title_activity_map_journey">MapJourney</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

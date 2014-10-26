@@ -8,7 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.iamhere.CreateJourneyActivity" >
 
-
     <LinearLayout
         android:id="@+id/linearLayoutJourneyName"
         android:layout_width="wrap_content"
@@ -24,39 +23,41 @@
             android:text="Journey Name"
             tools:ignore="HardcodedText" />
     </LinearLayout>
-    
-    <Button
-        android:id="@+id/buttonAddCheckin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutJourneyName"
-        android:onClick="addCheckin"
-        android:text="@string/add_checkin"
-        tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/seeMapButton"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutJourneyName"
-        android:layout_toRightOf="@id/buttonAddCheckin"
-        android:onClick="mapJourney"
-        android:text="Map Journey"
-        tools:ignore="HardcodedText" />
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonAddCheckin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addCheckin"
+            android:text="@string/add_checkin"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/seeMapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="mapJourney"
+            android:text="Map Journey"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/JourneyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/linearLayoutJourneyName"
-        android:layout_toRightOf="@+id/buttonAddCheckin" />
+        android:layout_alignTop="@+id/linearLayoutJourneyName" />
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
-        android:layout_below="@id/buttonAddCheckin"
+        android:layout_below="@id/linearLayoutJourneyName"
         android:layout_marginLeft="16dp" >
 
         <LinearLayout
@@ -93,8 +94,17 @@
                     android:layout_height="wrap_content" >
                 </TableRow>
             </TableLayout>
-
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/saveJourneyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:onClick="saveJourney"
+        android:text="Save Journey"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

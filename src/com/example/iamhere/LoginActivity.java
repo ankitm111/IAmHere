@@ -16,6 +16,8 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends Activity {
 
+	public static String loginName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class LoginActivity extends Activity {
 	{
 		String uname  = ((EditText) findViewById(R.id.editTextUsername)).getText().toString();
 		String password = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
+		loginName = uname;
 		
 		ParseUser.logInInBackground(uname, password, 
 				  new LogInCallback() {
